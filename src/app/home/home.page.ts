@@ -26,13 +26,17 @@ export class HomePage {
   //   this.router.navigate(["/detalle/"+this.idPersRPG]);
   // }
 
+  // clicBotonInsertar() {
+  //   this.firestoreService.insertar("personaje", this.PersonajeRPG).then(() => {
+  //     console.log('Personaje creado correctamente!');
+  //     this.PersonajeRPG= {} as Personaje;
+  //   }, (error) => {
+  //     console.error(error);
+  //   });
+  // }
+
   clicBotonInsertar() {
-    this.firestoreService.insertar("personaje", this.PersonajeRPG).then(() => {
-      console.log('Tarea creada correctamente!');
-      this.PersonajeRPG= {} as Personaje;
-    }, (error) => {
-      console.error(error);
-    });
+    this.router.navigate(["/detalle/nuevo"]);
   }
   
   obtenerListaPersonaje(){

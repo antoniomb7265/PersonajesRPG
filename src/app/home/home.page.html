@@ -15,7 +15,8 @@
     <ion-label>Descripción</ion-label>
     <ion-input [(ngModel)]="PersonajeRPG.descripcion"></ion-input>
   </ion-item> -->
-    <ion-button (click)="clicBotonInsertar()">Añadir personaje</ion-button>
+    <!-- <ion-button (click)="clicBotonInsertar()">Añadir personaje</ion-button> -->
+    <ion-fab-button (click)="clicBotonInsertar()" color="primary">Añadir personaje</ion-fab-button>
     <ion-item *ngFor="let documentoPersonaje of arrayColeccionPersonajes" (click)="selecPers(documentoPersonaje)">
       <ion-grid>
         <ion-row>
