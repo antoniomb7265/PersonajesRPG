@@ -1,14 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Principal</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <!-- <ion-item>
+    <ion-label>Nombre</ion-label>
+    <ion-input [(ngModel)]="PersonajeRPG.nombre"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción</ion-label>
+    <ion-input [(ngModel)]="PersonajeRPG.descripcion"></ion-input>
+  </ion-item> -->
+    <ion-button (click)="clicBotonInsertar()">Añadir personaje</ion-button>
+    <ion-item *ngFor="let documentoPersonaje of arrayColeccionPersonajes" (click)="selecPers(documentoPersonaje)">
+      <ion-grid>
+        <ion-row>
+          <p>_Nombre: <b>{{documentoPersonaje.data.nombre}}</b></p>
+          <p>_Descripcion: <b>{{documentoPersonaje.data.descripcion}}</b></p>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
 </ion-content>
