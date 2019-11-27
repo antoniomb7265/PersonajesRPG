@@ -29,6 +29,9 @@ export class DetallePage implements OnInit {
         // No se ha encontrado un document con ese ID. Vaciar los datos que hubiera
         this.document.data = {} as Personaje;
       } 
+      if (this.id == "nuevo") {
+        document.getElementById("botonBorrar").setAttribute("class","invisible");
+      }
     });
   }
 
@@ -37,15 +40,15 @@ export class DetallePage implements OnInit {
   }
 
   clicBotonBorrar() {
-    if (this.id != "nuevo") {
+    // if (this.id != "nuevo") {
       this.firestoreService.borrar("personaje", this.id).then(() => {
         this.router.navigate(["/home"]);
       }, (error) => {
         console.error(error);
       });
-    } else{
-      this.router.navigate(["/home"]);
-    }
+    // } else{
+    //   this.router.navigate(["/home"]);
+    // }
   }
 
   clicBotonModificar() {
