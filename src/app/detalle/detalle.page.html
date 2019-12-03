@@ -5,6 +5,7 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </ion-header>
 <!-- <ion-content> 
   My ID is: {{ id }} 
@@ -20,11 +21,13 @@
       <ion-label>Descripción</ion-label>
       <ion-input [(ngModel)]="document.data.descripcion"></ion-input>
     </ion-item>
-    <ion-button (click)="clicBotonModificar()">Guardar personaje</ion-button>
+    <ion-button id="botonModificar" (click)="clicBotonModificar()">Guardar personaje</ion-button>
     <ion-button id="botonBorrar" (click)="clicBotonBorrar()">Borrar personaje</ion-button>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Footer</ion-title>
+      <ion-icon name="build"></ion-icon>
+      <ion-icon name="call"></ion-icon>
+      <ion-icon name="cash"></ion-icon>
   </ion-toolbar>
 </ion-footer>

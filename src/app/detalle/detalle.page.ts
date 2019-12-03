@@ -30,6 +30,7 @@ export class DetallePage implements OnInit {
         this.document.data = {} as Personaje;
       } 
       if (this.id == "nuevo") {
+        document.getElementById("botonModificar").innerHTML = "Añadir";
         document.getElementById("botonBorrar").setAttribute("class","invisible");
       }
     });
