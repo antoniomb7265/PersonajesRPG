@@ -1,5 +1,7 @@
 {
   "name": "PPersonajeRPG",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

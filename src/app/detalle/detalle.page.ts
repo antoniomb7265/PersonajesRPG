@@ -3,6 +3,7 @@ import { FirestoreService } from '../firestore.service';
 import { ActivatedRoute } from "@angular/router";
 import { Router } from "@angular/router";
 import { Personaje } from '../personaje';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle',
@@ -17,7 +18,10 @@ export class DetallePage implements OnInit {
     data: {} as Personaje
   };
 
-  constructor(private activatedRoute: ActivatedRoute, private firestoreService: FirestoreService, private router: Router) {
+  constructor(public alertController: AlertController,
+              private activatedRoute: ActivatedRoute,
+              private firestoreService: FirestoreService,
+              private router: Router) {
     this.firestoreService.consultarPorId("personaje", this.activatedRoute.snapshot.paramMap.get("id")).subscribe((resultado) => {
       // Preguntar si se hay encontrado un document con ese ID
       if(resultado.payload.data() != null) {
@@ -50,6 +54,34 @@ export class DetallePage implements OnInit {
     // } else{
     //   this.router.navigate(["/home"]);
     // }
+  }
+
+  volver(){
+    this.router.navigate(["/home"]);
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      header: '',
+      message: 'Por favor, confirme que quiere <strong>borrar de forma permanente</strong> el registro',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Confirmar',
+          handler: () => {
+            console.log('Confirm Okay');
+            this.clicBotonBorrar();
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
   clicBotonModificar() {
