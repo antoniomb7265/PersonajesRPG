@@ -1,29 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Detalle</ion-title>
+    <ion-title>Mapa</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </ion-header>
-<!-- <ion-content>
-  My ID is: {{ id }} 
-  <p> Nombre: {{ document.data.nombre }} </p>
-  <p> Descripcion: {{ document.data.descripcion }} </p>
-</ion-content> -->
+
 <ion-content>
-    <ion-item>
-      <ion-label>Nombre</ion-label>
-      <ion-input [(ngModel)]="document.data.nombre"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Descripción</ion-label>
-      <ion-textarea [(ngModel)]="document.data.descripcion"></ion-textarea>
-    </ion-item>
-    <ion-button class="botones" id="botonModificar" (click)="clicBotonModificar()">Guardar personaje</ion-button>
-    <ion-button class="botones" id="botonBorrar" (click)="presentAlertConfirm()">Borrar personaje</ion-button>
+
 </ion-content>
+
 <ion-footer>
   <ion-toolbar align="center">
     <ion-button color="tertiary" (click)="volver()"><ion-icon name="home"></ion-icon></ion-button>

@@ -39,6 +39,14 @@ export class HomePage {
     this.router.navigate(["/detalle/nuevo"]);
   }
   
+  configurar() {
+    this.router.navigate(["/configurar/"]);
+  }
+  
+  mapa() {
+    this.router.navigate(["/mapa/"]);
+  }
+
   obtenerListaPersonaje(){
     this.firestoreService.consultar("personaje").subscribe((resultadoConsultaPersonaje) => {
       this.arrayColeccionPersonajes = [];

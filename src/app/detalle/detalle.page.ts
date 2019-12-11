@@ -39,7 +39,7 @@ export class DetallePage implements OnInit {
       }
     });
   }
-
+  
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
   }
@@ -54,6 +54,14 @@ export class DetallePage implements OnInit {
     // } else{
     //   this.router.navigate(["/home"]);
     // }
+  }
+
+  configurar() {
+    this.router.navigate(["/configurar/"]);
+  }
+
+  mapa() {
+    this.router.navigate(["/mapa/"]);
   }
 
   volver(){

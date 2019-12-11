@@ -8,7 +8,11 @@ ion-title {
   color: white;
 }
 ion-button {
-  --ion-color: #98ee99;
+  --background: #aaaaaa;
+  --background-activated: #aaaaaa;
+  --background-hover: #aaaaaa;
+  font-weight: bold;
+  color: black;
 }
 ion-footer {
   --ion-background-color: darkgray;
