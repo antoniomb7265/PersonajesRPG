@@ -22,11 +22,17 @@
     <ion-item *ngFor="let documentoPersonaje of arrayColeccionPersonajes" (click)="selecPers(documentoPersonaje)">
       <ion-grid>
           <ion-row>
-            <p>
-              Nombre: <b>{{documentoPersonaje.data.nombre}}</b>
-              <br><br>
-              Descripcion:<br><br>{{documentoPersonaje.data.descripcion}}
-            </p>
+            <ion-col>
+              <p>
+                Nombre: <b>{{documentoPersonaje.data.nombre}}</b>
+              </p><br>
+              <!-- Insertar imagen debajo del nombre-->
+            </ion-col> 
+            <ion-col>
+              <p>
+                Descripcion:<br><br>{{documentoPersonaje.data.descripcion}}
+              </p>
+            </ion-col> 
           </ion-row>
       </ion-grid>
     </ion-item>

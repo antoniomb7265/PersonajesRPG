@@ -63,8 +63,6 @@ export class HomePage {
     console.log("Personaje seleccionada: ");
     console.log(persSelec);
     this.idPersRPG = persSelec.id;
-    this.PersonajeRPG.nombre = persSelec.data.nombre;
-    this.PersonajeRPG.descripcion = persSelec.data.descripcion;
     this.router.navigate(["/detalle/"+this.idPersRPG]);
   }
 
@@ -84,5 +82,9 @@ export class HomePage {
       // Limpiar datos de pantalla
       this.PersonajeRPG = {} as Personaje;
     })
+  }
+  
+  volver(){
+    this.router.navigate(["/home"]);
   }
 }
