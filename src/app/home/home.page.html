@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Principal</ion-title>
+    <ion-title>Personajes</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -8,29 +8,31 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </ion-header>
 <ion-content>
-  <!-- <ion-item>
-    <ion-label>Nombre</ion-label>
-    <ion-input [(ngModel)]="PersonajeRPG.nombre"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Descripción</ion-label>
-    <ion-input [(ngModel)]="PersonajeRPG.descripcion"></ion-input>
-  </ion-item> -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="clicBotonInsertar()" color="tertiary"><ion-icon name="add"></ion-icon></ion-fab-button>
   </ion-fab>
     <ion-item *ngFor="let documentoPersonaje of arrayColeccionPersonajes" (click)="selecPers(documentoPersonaje)">
       <ion-grid>
           <ion-row>
-            <ion-col>
-              <p>
-                Nombre: <b>{{documentoPersonaje.data.nombre}}</b>
-              </p><br>
-              <!-- Insertar imagen debajo del nombre-->
+            <ion-col size="4">
+              <p *ngIf="anchoMayor">
+                <b>{{documentoPersonaje.data.nombre}}</b>
+              </p>
+              <ion-img [src]="documentoPersonaje.data.imagen"></ion-img>
             </ion-col> 
-            <ion-col>
+            <ion-col *ngIf="anchoMayor">
               <p>
                 Descripcion:<br><br>{{documentoPersonaje.data.descripcion}}
+              </p>
+            </ion-col> 
+            <ion-col *ngIf="!anchoMayor">
+              <p>
+                <b>Personaje:</b><br>{{documentoPersonaje.data.nombre}}
+              </p>
+              <p>
+                <b>Saga:</b><br>{{documentoPersonaje.data.saga}}
+              </p><p>
+                <b>Primera aparición:</b><br>{{documentoPersonaje.data.aparicion}}
               </p>
             </ion-col> 
           </ion-row>
@@ -38,10 +40,9 @@
     </ion-item>
 </ion-content>
 <ion-footer>
-    <ion-toolbar align="center">
-      <ion-button color="tertiary" (click)="volver()"><ion-icon name="home"></ion-icon></ion-button>
-      <ion-button color="tertiary" (click)="configurar()"><ion-icon name="build"></ion-icon></ion-button>
-      <ion-button color="tertiary" (click)="mapa()"><ion-icon name="map"></ion-icon></ion-button>
-      <ion-button color="tertiary"><ion-icon name="arrow-round-back"></ion-icon></ion-button>
-    </ion-toolbar>
-  </ion-footer>
+  <ion-toolbar align="center">
+    <ion-button slot="start" color="tertiary" (click)="mapa()"><ion-icon name="map"></ion-icon></ion-button>
+    <ion-button color="tertiary" (click)="volver()"><ion-icon name="home"></ion-icon></ion-button>
+    <ion-button slot="end" color="tertiary" (click)="configurar()"><ion-icon name="build"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-footer>

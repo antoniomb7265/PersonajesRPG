@@ -13,27 +13,25 @@ export class HomePage {
     id: "",
     data: {} as Personaje
    }];
+  
+  // arrayConfiguracion: any = {
+  // aqui se establecerian las variables locales que guardaria el array de configuracion
+  // };
 
   PersonajeRPG: Personaje;
   idPersRPG: string;
+  anchoMayor: boolean;
 
   constructor(private firestoreService: FirestoreService, private router: Router) {
     this.PersonajeRPG = {} as Personaje;
     this.obtenerListaPersonaje();
+
+    if(window.screen.width>window.screen.height){
+      this.anchoMayor = true;
+    } else {
+      this.anchoMayor = false;
+    }
   }
-
-  // navigateToDetalle() {
-  //   this.router.navigate(["/detalle/"+this.idPersRPG]);
-  // }
-
-  // clicBotonInsertar() {
-  //   this.firestoreService.insertar("personaje", this.PersonajeRPG).then(() => {
-  //     console.log('Personaje creado correctamente!');
-  //     this.PersonajeRPG= {} as Personaje;
-  //   }, (error) => {
-  //     console.error(error);
-  //   });
-  // }
 
   clicBotonInsertar() {
     this.router.navigate(["/detalle/nuevo"]);
@@ -58,6 +56,17 @@ export class HomePage {
       })
     });
   }
+
+  // obtenerConfiguracion(){
+  //   this.firestoreService.consultar("configuracion").subscribe((resultadoConsultaConfiguracion) => {
+  //     this.arrayConfiguracion = [];
+  //     resultadoConsultaConfiguracion.forEach((datosConf: any) => {
+  //       this.arrayConfiguracion.push({
+  //         aqui se recogerian los datos del servidor individualmente y añadiendolos al array
+  //       });
+  //     })
+  //   });
+  // }
 
   selecPers(persSelec) {
     console.log("Personaje seleccionada: ");

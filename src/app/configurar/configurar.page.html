@@ -14,9 +14,8 @@
 
 <ion-footer>
   <ion-toolbar align="center">
+    <ion-button slot="start" color="tertiary" (click)="mapa()"><ion-icon name="map"></ion-icon></ion-button>
     <ion-button color="tertiary" (click)="volver()"><ion-icon name="home"></ion-icon></ion-button>
-    <ion-button color="tertiary" (click)="configurar()"><ion-icon name="build"></ion-icon></ion-button>
-    <ion-button color="tertiary" (click)="mapa()"><ion-icon name="map"></ion-icon></ion-button>
-    <ion-button color="tertiary" (click)="volver()"><ion-icon name="arrow-round-back"></ion-icon></ion-button>
+    <ion-button slot="end" color="tertiary" (click)="configurar()"><ion-icon name="build"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-footer>
