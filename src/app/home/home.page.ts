@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import { FirestoreService } from '../firestore.service';
 import { Personaje } from '../personaje';
 import { Router } from "@angular/router";
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
 export class HomePage {
   arrayColeccionPersonajes: any = [{
     id: "",
@@ -18,20 +21,32 @@ export class HomePage {
   // aqui se establecerian las variables locales que guardaria el array de configuracion
   // };
 
-  PersonajeRPG: Personaje;
   idPersRPG: string;
   anchoMayor: boolean;
 
-  constructor(private firestoreService: FirestoreService, private router: Router) {
-    this.PersonajeRPG = {} as Personaje;
+  constructor(private firestoreService: FirestoreService,
+              private callNumber: CallNumber ,// Llamar por telefono
+              private router: Router,
+              private screenOrientation: ScreenOrientation) {
     this.obtenerListaPersonaje();
 
-    if(window.screen.width>window.screen.height){
+    if(window.screen.width>window.screen.height)
+    {
       this.anchoMayor = true;
+      console.log("La orientación ha cambiado");
     } else {
       this.anchoMayor = false;
+      console.log("La orientación ha cambiado");
     }
+
+    this.screenOrientation.onChange().subscribe(
+      () => {
+        console.log("Orientación cambiada");
+        this.anchoMayor=!this.anchoMayor;
+      }
+    );
   }
+
 
   clicBotonInsertar() {
     this.router.navigate(["/detalle/nuevo"]);
@@ -74,26 +89,15 @@ export class HomePage {
     this.idPersRPG = persSelec.id;
     this.router.navigate(["/detalle/"+this.idPersRPG]);
   }
-
-  clicBotonBorrar() {
-    this.firestoreService.borrar("personaje", this.idPersRPG).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaPersonaje();
-      // Limpiar datos de pantalla
-      this.PersonajeRPG = {} as Personaje;
-    })
-  }
-
-  clicBotonModificar() {
-    this.firestoreService.actualizar("personaje", this.idPersRPG, this.PersonajeRPG).then(() => {
-      // Actualizar la lista completa
-      this.obtenerListaPersonaje();
-      // Limpiar datos de pantalla
-      this.PersonajeRPG = {} as Personaje;
-    })
-  }
   
   volver(){
     this.router.navigate(["/home"]);
   }
+
+  llamar() {
+    this.callNumber.callNumber("684073639", true)
+    .then(res => console.log('Launched dialer!', res))
+    .catch(err => console.log('Error launching dialer', err));
+  }
+
 }

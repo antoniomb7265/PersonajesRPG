@@ -14,32 +14,39 @@
 </ion-content> -->
 <ion-content>
     <ion-item>
-      <ion-label>Nombre</ion-label>
+      <ion-label><b>Nombre: </b></ion-label>
       <ion-input [(ngModel)]="document.data.nombre"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Descripción</ion-label>
+      <ion-label><b>Descripción: </b></ion-label>
       <ion-textarea [(ngModel)]="document.data.descripcion"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Saga</ion-label>
+      <ion-label><b>Saga: </b></ion-label>
       <ion-textarea [(ngModel)]="document.data.saga"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Primera aparición</ion-label>
+      <ion-label><b>Primera aparición: </b></ion-label>
       <ion-textarea [(ngModel)]="document.data.aparicion"></ion-textarea>
     </ion-item>
     <ion-item>
-      <ion-label>Url de la imagen</ion-label>
+      <ion-label><b>Url de la imagen: </b></ion-label>
       <ion-textarea [(ngModel)]="document.data.imagen"></ion-textarea>
     </ion-item>
-    <ion-button class="botones" id="botonModificar" (click)="clicBotonModificar()">Guardar personaje</ion-button>
-    <ion-button class="botones" id="botonBorrar" (click)="presentAlertConfirm()">Borrar personaje</ion-button>
+    <ion-item>
+      <ion-button class="botones" id="botonModificar" (click)="clicBotonModificar()">Guardar</ion-button>
+      <ion-button class="botones" id="botonBorrar" (click)="presentAlertConfirm()">Borrar</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button class="botones" id="botonImagen" (click)="uploadImagePicker()">Cambiar imagen</ion-button>
+      <ion-button color="tertiary" (click)="whatsappShare()" size="xl"><ion-icon name="logo-whatsapp"></ion-icon></ion-button>
+    </ion-item>
 </ion-content>
 <ion-footer>
   <ion-toolbar align="center">
     <ion-button slot="start" color="tertiary" (click)="mapa()"><ion-icon name="map"></ion-icon></ion-button>
     <ion-button color="tertiary" (click)="volver()"><ion-icon name="home"></ion-icon></ion-button>
+    <ion-button color="tertiary" (click)="llamar()"><ion-icon name="call"></ion-icon></ion-button>
     <ion-button slot="end" color="tertiary" (click)="configurar()"><ion-icon name="build"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-footer>
